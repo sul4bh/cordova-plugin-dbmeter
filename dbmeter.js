@@ -7,7 +7,7 @@ var DBMeter = {
   * @param  {success} callback in case of success
   * @param  {error} callback in case of error
   */
-  delete: function(success, error) {
+  delete: function (success, error) {
     cordova.exec(
       success,
       error,
@@ -23,7 +23,7 @@ var DBMeter = {
   * @param  {success} callback in case of success
   * @param  {error} callback in case of error
   */
-  start: function(success, error) {
+  start: function (success, error) {
     cordova.exec(
       success,
       error,
@@ -37,7 +37,7 @@ var DBMeter = {
   * @param  {success} callback in case of success
   * @param  {error} callback in case of error
   */
-  stop: function(success, error) {
+  stop: function (success, error) {
     cordova.exec(
       success,
       error,
@@ -51,18 +51,33 @@ var DBMeter = {
   * @param  {success} callback in case of success
   * @param  {error} callback in case of error
   */
-  isListening: function(success, error) {
+  isListening: function (success, error) {
     cordova.exec(
       success,
       error,
       'DBMeter', 'isListening', []
     );
+  },
+
+  /**
+  * Returns whether the DBMeter's AVAudioSession was interrupted
+  *
+  * @param  {success} callback in case of success
+  * @param  {error} callback in case of error
+  */
+  isInterrupted: function (success, error) {
+    cordova.exec(
+      success,
+      error,
+      'DBMeter', 'isInterrupted', []
+    );
   }
+
 };
 
 DBMeter.ERROR_CODES = {
-  '0':'DBMETER_NOT_INITIALIZED',
-  '1':'DBMETER_NOT_LISTENING'
+  '0': 'DBMETER_NOT_INITIALIZED',
+  '1': 'DBMETER_NOT_LISTENING'
 };
 
 module.exports = DBMeter;
